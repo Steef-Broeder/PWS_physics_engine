@@ -2,7 +2,7 @@
 
 A custom real time 2D solidbody physics simulation
 
-enter virtual envoirement:
+enter virtual environment:
 venv\Scripts\activate
 
 update requirements.txt:
