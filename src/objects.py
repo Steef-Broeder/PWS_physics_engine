@@ -1,7 +1,7 @@
 import pygame
 
 class object:
-    def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple(int, int, int), mass:float, speed:int, friction:float, gravity:bool) -> None:
+    def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple(), mass:float, speed:int, friction:float, gravity:bool) -> None:
         self.surface = surface
         self.x = x
         self.y = y
@@ -16,7 +16,7 @@ class object:
         self.y = y
 
 class rect(object):
-    def __init__(self, surface:pygame.Surface, x: int, y: int, color: tuple(int, int, int), mass: float, speed:int, friction: float, gravity: bool, width:int, height:int) -> None:
+    def __init__(self, surface:pygame.Surface, x: int, y: int, color: tuple(), mass: float, speed:int, friction: float, gravity: bool, width:int, height:int) -> None:
         super().__init__(surface, x, y, color, mass, speed, friction, gravity)
         self.width = width
         self.height = height
@@ -27,7 +27,7 @@ class rect(object):
 
 
 class circle(object):
-    def __init__(self, surface:pygame.Surface, x: int, y: int, color: tuple(int, int, int), mass: float, speed:int, friction: float, gravity: bool, radius:int) -> None:
+    def __init__(self, surface:pygame.Surface, x: int, y: int, color: tuple(), mass: float, speed:int, friction: float, gravity: bool, radius:int) -> None:
         super().__init__(surface, x, y, color, mass, speed, friction, gravity)
         self.radius = radius
     
