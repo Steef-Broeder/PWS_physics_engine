@@ -1,6 +1,3 @@
-from objects import *
-import collision
-
 import pygame as pg
 
 WIDTH = 600
@@ -19,10 +16,6 @@ pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Physics Simulation")
 clock = pg.time.Clock()     ## For syncing the FPS
-
-
-rectangle = rect(surface=screen, x=20, y=10, color=WHITE, mass=10, speed=10, friction=10, gravity=True, width=20, height=10)
-
 
 ## Game loop
 running = True
