@@ -41,9 +41,17 @@ class object:
 		self.x = x
 		self.y = y
 		self.color = color
-		
-	def set_color(self, color:tuple):
+
+	def set_color(self, color:tuple) -> None:
 		self.color = color
+
+	def get_position(self) -> tuple:
+		return (self.x, self.y)
+
+	def set_position(self, x:int, y:int) -> None:
+		self.x = x
+		self.y = y
+
 
 class circle(object):
 	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple, radius:int) -> None:
