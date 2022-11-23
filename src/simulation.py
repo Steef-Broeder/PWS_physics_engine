@@ -1,5 +1,6 @@
 from objects import *
 import collision
+import random
 
 import pygame as pg
 
@@ -20,9 +21,13 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Physics Simulation")
 clock = pg.time.Clock()     ## For syncing the FPS
 
+circles = []
 
-rectangle = rect(surface=screen, x=20, y=10, color=WHITE, mass=10, speed=10, friction=10, gravity=True, width=20, height=10)
-
+def gen_circles(n):
+    circles.clear()
+    for i in range(n):
+        circle1 = circle(surface=screen, x=random.randint(0,WIDTH), y=random.randint(0,HEIGHT), color=(random.randint(0,255),random.randint(0,255),random.randint(0,255)), radius=random.randint(0,50))
+        circles.append(circle1)
 
 ## Game loop
 running = True
@@ -33,14 +38,17 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
+        if event.type == pg.KEYUP:
+            if event.key == pg.K_RETURN:
+                gen_circles(40)
 
     #2 Update
-
 
     #3 Draw/render
     screen.fill(BLACK)
 
-
+    for circle1 in circles:
+        circle1.draw()
 
     ## Done after drawing everything to the screen
     pg.display.flip()       
