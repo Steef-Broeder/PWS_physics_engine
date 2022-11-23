@@ -36,11 +36,14 @@ import pygame
 
 
 class object:
-    def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple) -> None:
-        self.surface = surface
-        self.x = x
-        self.y = y
-        self.color = color
+	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple) -> None:
+		self.surface = surface
+		self.x = x
+		self.y = y
+		self.color = color
+		
+	def set_color(self, color:tuple):
+		self.color = color
 
 class circle(object):
 	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple, radius:int) -> None:
