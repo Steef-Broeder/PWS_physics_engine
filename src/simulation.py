@@ -5,8 +5,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 import objects 
 
 
-WIDTH = 600
-HEIGHT = 480
+WIDTH = 1080
+HEIGHT = 840
 FPS = 30
 
 # Define Colors 
