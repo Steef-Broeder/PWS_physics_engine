@@ -22,6 +22,9 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Physics Simulation")
 clock = pg.time.Clock()     ## For syncing the FPS
 
+#WORLD VARIABLES 
+global_force = (0, 9.81)
+
 ## Game loop
 running = True
 while running:
