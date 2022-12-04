@@ -20,9 +20,8 @@ class object:
 		self.x = x
 		self.y = y
 
-	def apply_force(self, deltatime:float) -> None:
-		return
-		##self.velocity = (self.mass * self.apply_force[0] * deltatime, self.mass * self.apply_force[1] * deltatime)
+	def update(self, deltatime:float) -> None:
+		self.velocity = (((self.force[0]/self.mass) * deltatime) + self.velocity[0], ((self.force[1]/self.mass) * deltatime) + self.velocity[1])
 
 
 class circle(object):
