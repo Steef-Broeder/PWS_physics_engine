@@ -1,7 +1,7 @@
 import pygame
 
 class object:
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float, velocity:tuple[int, int], force:tuple[int, int]) -> None:
+	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), force:tuple[int, int] = (0, 0)) -> None:
 		self.surface = surface
 		self.x = x
 		self.y = y
@@ -25,7 +25,7 @@ class object:
 
 
 class circle(object):
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float, velocity:tuple[int, int], force:tuple[int, int], radius:int) -> None:
+	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), force:tuple[int, int] = (0, 0), radius:float = 10) -> None:
 		super().__init__(surface, x, y, color, mass, velocity, force)
 		self.radius = radius
 
@@ -33,7 +33,7 @@ class circle(object):
 		pygame.draw.circle(surface=self.surface, color=self.color, center=(self.x, self.y), radius=self.radius)
 
 class rect(object):
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float, velocity:tuple[int, int], force:tuple[int, int], width:int, height:int) -> None:
+	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), force:tuple[int, int] = (0, 0), width:int = 10, height:int = 10) -> None:
 		super().__init__(surface, x, y, color, mass, velocity, force)
 		self.width = width
 		self.height = height
