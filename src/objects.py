@@ -21,7 +21,12 @@ class object:
 		self.y = y
 
 	def update(self, deltatime:float) -> None:
+		##TODO: moet geen force gebruiken want die is nog van andere dingen afhankelijk
 		self.velocity = (((self.force[0]/self.mass) * deltatime) + self.velocity[0], ((self.force[1]/self.mass) * deltatime) + self.velocity[1])
+
+	def get_airresistance(self) -> None:
+		return
+		print(self.__class__.__name__)
 
 
 class circle(object):
