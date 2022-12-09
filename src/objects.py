@@ -2,7 +2,7 @@ import pygame
 import math
 
 class object:
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), applied_force:tuple[int, int] = (0, 0)) -> None:
+	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, applied_force:tuple[int, int] = (0, 0)) -> None:
 		self.surface = surface
 		self.x = x
 		self.y = y
@@ -34,8 +34,8 @@ class object:
 
 
 class circle(object):
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), applied_force:tuple[int, int] = (0, 0), radius:float = 10) -> None:
-		super().__init__(surface, x, y, color, mass, velocity, applied_force)
+	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, applied_force:tuple[int, int] = (0, 0), radius:float = 10) -> None:
+		super().__init__(surface, x, y, color, mass, velocity, rotation, applied_force)
 		self.dragcoeffient = 0.5
 		self.radius = radius
 
@@ -52,8 +52,8 @@ class circle(object):
 		return super().get_airresistance(self.dragcoeffient, self.get_area())
 
 class rect(object):
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), applied_force:tuple[int, int] = (0, 0), width:int = 10, height:int = 10) -> None:
-		super().__init__(surface, x, y, color, mass, velocity, applied_force)
+	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, applied_force:tuple[int, int] = (0, 0), width:int = 10, height:int = 10) -> None:
+		super().__init__(surface, x, y, color, mass, velocity, rotation, applied_force)
 		self.dragcoeffient = 1.0
 		self.width = width
 		self.height = height
