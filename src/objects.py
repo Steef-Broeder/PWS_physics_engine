@@ -65,3 +65,6 @@ class rect(object):
 	def get_area(self) -> float:
 		#TODO: ja deze hele teringfucntie
 		return 
+	
+	def get_airresistance(self) -> None:
+		return super().get_airresistance(self.dragcoeffient, self.get_area())
