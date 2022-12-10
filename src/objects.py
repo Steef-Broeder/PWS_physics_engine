@@ -1,7 +1,7 @@
 import pygame
 
 class object:
-	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), force:tuple[int, int] = (0, 0)) -> None:
+	def __init__(self, surface:pygame.Surface, x:int, y:int, color:tuple[int, int, int], mass:float = 5, velocity:tuple[int, int] = (0, 0), force:tuple[int, int] = (0, 0), acceleration_variable:int = 9.81) -> None:
 		self.surface = surface
 		self.x = x
 		self.y = y
@@ -9,6 +9,7 @@ class object:
 		self.mass = mass
 		self.velocity = velocity
 		self.force = force
+		self.acceleration_variable = acceleration_variable
 
 	def set_color(self, color:tuple[int, int, int]) -> None:
 		self.color = color
@@ -19,6 +20,9 @@ class object:
 	def set_position(self, x:int, y:int) -> None:
 		self.x = x
 		self.y = y
+
+	def get_aantrekkingskracht(self):
+		self.aantrekkingskracht = self.mass * self.acceleration_variable
 
 	def update(self, deltatime:float) -> None:
 		self.velocity = (((self.force[0]/self.mass) * deltatime) + self.velocity[0], ((self.force[1]/self.mass) * deltatime) + self.velocity[1])
