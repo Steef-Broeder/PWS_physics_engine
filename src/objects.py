@@ -21,8 +21,8 @@ class object:
 		self.y = y
 
 	def get_applied_force(self):
-		self.applied_force = self.mass * self.acceleration_variable
-		return self.applied_force
+		applied_force = self.mass * self.acceleration_variable
+		return applied_force
 
 	def update(self, force:tuple(float, float), deltatime:float) -> None:
 		self.velocity = (((force[0]/self.mass) * deltatime) + self.velocity[0], ((force[1]/self.mass) * deltatime) + self.velocity[1])
