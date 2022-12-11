@@ -2,14 +2,14 @@ import pygame
 import math
 
 class object:
-	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, applied_force:tuple[int, int] = (0, 0)) -> None:
+	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, acceleration:tuple[float, float] = (0, 0)) -> None:
 		self.surface = surface
 		self.x = x
 		self.y = y
 		self.color = color
 		self.mass = mass
 		self.velocity = velocity
-		self.applied_force = applied_force
+		self.acceleration = acceleration 
 
 	def set_color(self, color:tuple[int, int, int]) -> None:
 		self.color = color
@@ -21,12 +21,15 @@ class object:
 		self.x = x
 		self.y = y
 
-	def update(self, deltatime:float) -> None:
-		##TODO: moet geen applied_force gebruiken want die is nog van andere dingen afhankelijk
-		self.velocity = (((self.applied_force[0]/self.mass) * deltatime) + self.velocity[0], ((self.applied_force[1]/self.mass) * deltatime) + self.velocity[1])
-
 	def get_area(self) -> float:
 		return
+
+	def update(self, force:tuple(float, float), deltatime:float) -> None:
+		self.velocity = (((force[0]/self.mass) * deltatime) + self.velocity[0], ((force[1]/self.mass) * deltatime) + self.velocity[1])
+
+	def get_applied_force(self):
+		applied_force = (self.mass * self.acceleration[0], self.mass * self.acceleration[1])
+		return applied_force
 
 	def get_airresistance(self, dragcoeffient:float, area:float) -> None:
 		airrestance = (0.5 * dragcoeffient * area * self.velocity[0]**2, 0.5 * dragcoeffient * area * self.velocity[1]**2)
@@ -34,8 +37,8 @@ class object:
 
 
 class circle(object):
-	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, applied_force:tuple[int, int] = (0, 0), radius:float = 10) -> None:
-		super().__init__(surface, x, y, color, mass, velocity, rotation, applied_force)
+	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, acceleration:tuple[float, float] = (0, 0), radius:float = 10) -> None:
+		super().__init__(surface, x, y, color, mass, velocity, rotation, acceleration)
 		self.dragcoeffient = 0.5
 		self.radius = radius
 
@@ -52,8 +55,8 @@ class circle(object):
 		return super().get_airresistance(self.dragcoeffient, self.get_area())
 
 class rect(object):
-	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, applied_force:tuple[int, int] = (0, 0), width:int = 10, height:int = 10) -> None:
-		super().__init__(surface, x, y, color, mass, velocity, rotation, applied_force)
+	def __init__(self, surface:pygame.Surface, x:int = 0, y:int = 0, color:tuple[int, int, int] = (100, 100, 100), mass:float = 5, velocity:tuple[int, int] = (0, 0), rotation:float = 0, acceleration:tuple[float, float] = (0, 0), width:int = 10, height:int = 10) -> None:
+		super().__init__(surface, x, y, color, mass, velocity, rotation, acceleration)
 		self.dragcoeffient = 1.0
 		self.width = width
 		self.height = height
