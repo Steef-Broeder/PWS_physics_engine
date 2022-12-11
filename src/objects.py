@@ -24,7 +24,7 @@ class object:
 	def get_area(self) -> float:
 		return
 
-	def update(self, force:tuple(float, float), deltatime:float) -> None:
+	def update(self, deltatime:float, force:tuple[float, float] = (0, 0)) -> None:
 		self.velocity = (((force[0]/self.mass) * deltatime) + self.velocity[0], ((force[1]/self.mass) * deltatime) + self.velocity[1])
 
 	def get_applied_force(self):
