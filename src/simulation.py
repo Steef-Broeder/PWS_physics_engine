@@ -2,7 +2,7 @@ import pygame as pg
 import random, sys, os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-import objects 
+import circle 
 
 
 WIDTH = 840
@@ -19,11 +19,11 @@ BLUE = (0, 0, 255)
 ## initialize pg and create window
 pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
-pg.display.set_caption("Physics Simulation")
+pg.display.set_caption("Simulation")
 clock = pg.time.Clock()     ## For syncing the FPS
 
 #WORLD VARIABLES 
-global_force = (0, 9.81)
+
 
 ## Game loop
 running = True
