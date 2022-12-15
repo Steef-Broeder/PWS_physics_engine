@@ -22,7 +22,7 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Simulation")
 clock = pg.time.Clock()     ## For syncing the FPS
 
-#WORLD VARIABLES 
+#shit
 
 
 ## Game loop
