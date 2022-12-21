@@ -23,7 +23,8 @@ pg.display.set_caption("Simulation")
 clock = pg.time.Clock()     ## For syncing the FPS
 
 #Setup
-
+collision_brute.setup(screen, WIDTH, HEIGHT)
+circles = collision_brute.create_circles(20, 10)
 
 ## Game loop
 running = True
@@ -41,7 +42,8 @@ while running:
     #3 Draw/render
     screen.fill(BLACK)
 
-
+    for circlex in circles:
+        circlex.draw()
 
     ## Done after drawing everything to the screen
     pg.display.flip()       
