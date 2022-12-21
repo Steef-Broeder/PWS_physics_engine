@@ -14,3 +14,13 @@ class circle:
 
 	def draw(self):
 		pygame.draw.circle(surface=self.surface, color=self.color, center=(self.x, self.y), radius=self.radius)
+
+	def set_velocity(self, velocity:tuple[int, int]) -> None:	
+		self.velocity = velocity 
+
+	def location(self) -> tuple[int, int]:
+		return (self.x, self.y)
+
+	def new_location(self) -> tuple[int, int]:
+		new_location = (self.x + self.velocity[0], self.y + self.velocity[1])
+		return new_location
